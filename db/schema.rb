@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_135844) do
+ActiveRecord::Schema.define(version: 2021_11_30_140702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2021_11_30_135844) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["users_id"], name: "index_children_on_users_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "status", default: "pending"
+    t.bigint "children_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["children_id"], name: "index_tasks_on_children_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +52,5 @@ ActiveRecord::Schema.define(version: 2021_11_30_135844) do
   end
 
   add_foreign_key "children", "users", column: "users_id"
+  add_foreign_key "tasks", "children", column: "children_id"
 end
