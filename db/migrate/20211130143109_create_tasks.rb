@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
     create_table :tasks do |t|
       t.string :title
       t.text :description
-      t.string :status, :default => 'pending'
+      t.string :status
       t.references :children, null: false, foreign_key: true
 
       t.timestamps
