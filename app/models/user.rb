@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :email, uniqueness: true
+  validates :first_name, :last_name, :email, :age, :presence => true
+  validates :age, :numericality => { :greater_than => 18 }
 end
