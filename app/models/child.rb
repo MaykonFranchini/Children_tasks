@@ -7,5 +7,6 @@ class Child < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, uniqueness: true
+  validates :user_id, presence: { message: "Please insert the Parents reference number. You can find this at Parents dashboard." }
   validates :first_name, :last_name, :email, :date_of_birth, :presence => true
 end
