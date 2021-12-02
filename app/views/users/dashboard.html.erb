@@ -1,2 +1,4 @@
 <h1>Welcome <%=@user.first_name%> <%=@user.last_name%> <%=@user.age%> years old</h1>
-
+<% @user.children.each do |child| %>
+<%= child.email %>
+<% end  %>

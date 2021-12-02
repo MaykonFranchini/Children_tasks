@@ -1,12 +1,8 @@
-class User < ApplicationRecord
+class Child < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :children
+  belongs_to :user
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  validates :email, uniqueness: true
-  validates :first_name, :last_name, :email, :age, :presence => true
-  validates :age, :numericality => { :greater_than => 18 }
 end
