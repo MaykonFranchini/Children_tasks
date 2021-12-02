@@ -7,6 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, uniqueness: true
-  validates :first_name, :last_name, :email, :age, :presence => true
-  validates :age, :numericality => { :greater_than => 18 }
+  validates :first_name, :last_name, :email, :date_of_birth, :presence => true
 end
