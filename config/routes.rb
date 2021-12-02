@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :children, path: 'child'
+  devise_for :users, path: 'parents'
 
   root to: 'pages#home'
 
