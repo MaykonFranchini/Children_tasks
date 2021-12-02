@@ -1,4 +1,5 @@
-<h1>Welcome <%=@user.first_name%> <%=@user.last_name%> <%=@user.age%> years old</h1>
+<h1>Welcome <%=@user.first_name%> <%=@user.last_name%> <%=@user.date_of_birth%></h1>
 <% @user.children.each do |child| %>
-<%= child.email %>
+<p><%= child.first_name %> <%= child.last_name %> <%= child.date_of_birth %> <%= child.email %></p>
+
 <% end  %>
