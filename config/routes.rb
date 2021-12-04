@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   get 'users/dashboard', to: 'users#dashboard', as: :dashboard
 
-  resources :families, only: [:new, :create]
+  get 'child/dashboard', to: 'children#dashboard', as: :children_dashboard
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
