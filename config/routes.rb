@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'users/dashboard', to: 'users#dashboard', as: :dashboard
+  get '/user' => "users#dashboard", :as => :user_root
+  get '/child' => "children#dashboard", :as => :child_root
 
-  get 'child/dashboard', to: 'children#dashboard', as: :children_dashboard
+  get 'selectlogin', to: 'pages#selectlogin'
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
