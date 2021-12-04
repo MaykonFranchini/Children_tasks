@@ -1,0 +1,44 @@
+h1 {
+  margin: 20px 0;
+  text-align: center;
+}
+.loginContainer {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px ;
+  width: 250px;
+  height: 300px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+
+.parents-login {
+  background-color: rgb(141, 255, 255);
+  transition: filter .2s;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.kids-login {
+  background-color: rgb(128, 248, 202);
+  transition: filter .2s;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}

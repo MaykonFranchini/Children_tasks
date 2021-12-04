@@ -1,0 +1,17 @@
+<h1>Select your acount type</h1>
+
+<div class="loginContainer">
+
+  <div class="login parents-login">
+    <%= link_to(new_user_session_path) do %>
+      <%= image_tag "new-parents.png", alt: "Parents" %>
+    <% end %>
+  </div>
+
+
+  <div class="login kids-login">
+    <%= link_to(new_child_session_path) do %>
+      <%= image_tag "kids.png", alt: "Kids" %>
+    <% end %>
+  </div>
+</div>
