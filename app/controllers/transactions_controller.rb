@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     if @transaction.save
-      redirect_to 'users/'
+      redirect_to '/user'
     else
     render :new
     end
