@@ -3,3 +3,7 @@
 <p><%= child.first_name %> <%= child.last_name %> <%= child.date_of_birth %> <%= child.email %></p>
 
 <% end  %>
+<a href='#' id='transactionLink' class="btn btn-primary">New transaction</a>
+<div id="transactionForm">
+  <%= render 'shared/transaction_form', transaction: @transaction %>
+</div>
