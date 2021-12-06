@@ -3,7 +3,7 @@
 <%= simple_form_for @transaction do |f| %>
   <%= f.input :transaction_type, as: :radio_buttons, collection: ['deposit', 'withdraw'] %>
   <%= f.input :description, as: :text %>
-  <%# <%= f.association :account, label_method: :first_name, value_method: :id %> %>
+  <%= f.input :account_id, :as => :hidden, :input_html => { :value => @child.id } %>
   <%= f.input :amount %>
   <%= f.button :submit %>
 <% end %>

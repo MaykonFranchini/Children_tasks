@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/user' => "users#dashboard", :as => :user_root
   get '/child' => "children#dashboard", :as => :child_root
 
+   get "children/:id", to: 'children#show', as: :child
+
   get 'selectlogin', to: 'pages#selectlogin'
 
   resources :transactions, only: [:new, :create]

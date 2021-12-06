@@ -2,7 +2,9 @@ class Child < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :user
+  has_many :account
   has_many :transactions ,through: :account
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
