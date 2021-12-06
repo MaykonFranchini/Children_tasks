@@ -1,9 +1,12 @@
 <h1>Welcome <%=@user.first_name%> <%=@user.last_name%> <%=@user.date_of_birth%></h1>
-<% @user.children.each do |child| %>
-<p><%= child.first_name %> <%= child.last_name %> <%= child.date_of_birth %> <%= child.email %></p>
+<div class="family-cards">
+  <% @user.children.each do |child| %>
+    <%= link_to child_path(child.id) do %>
+    <div class="card-trip">
+      <h3><%= child.first_name %></h3>
+    </div>
+    <% end %>
 
 <% end  %>
-<a href='#' id='transactionLink' class="btn btn-primary">New transaction</a>
-<div id="transactionForm">
-  <%= render 'shared/transaction_form', transaction: @transaction %>
+
 </div>
