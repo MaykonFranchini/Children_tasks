@@ -1,3 +1,3 @@
 class Transaction < ApplicationRecord
-  belongs_to :child
+  belongs_to :account
 end

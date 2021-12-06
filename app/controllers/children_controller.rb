@@ -3,5 +3,6 @@ class ChildrenController < ApplicationController
 
   def dashboard
     @child = Child.find(current_child.id)
+    # @account = Account.find(child_id: current_child.id) || Account.create(@child)
   end
 end

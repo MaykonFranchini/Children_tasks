@@ -15,6 +15,6 @@ class TransactionsController < ApplicationController
 
   private
     def transaction_params
-      params.require(:transaction).permit(:type, :description, :amount, :child_id)
+      params.require(:transaction).permit(:transaction_type, :description, :amount, :child_id)
     end
 end
