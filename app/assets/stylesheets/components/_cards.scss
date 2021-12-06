@@ -12,3 +12,42 @@
   width: 200px;
   height:200px;
 }
+
+.balance-card {
+  padding: 10px;
+  font-size: 1.3rem;
+  margin: 10px auto;
+  background-color: #3853b3;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  color: white;
+
+  .balance-info {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+  }
+
+  .balance-name {
+    align-self: flex-end;
+  }
+}
+
+.transactionButton {
+  align-self: flex-end;
+  background: #fff;
+  color: #3853b3;
+  border-radius: 15px;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: .8rem;
+
+  &:hover {
+    color: #3853b3;
+    text-decoration: none;
+  }
+
+}
