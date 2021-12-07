@@ -3,6 +3,15 @@ $secondary: #38ef7d;
 $white: #fff;
 $gray: #9b9b9b;
 
+ .auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+ box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
 #transactionForm {
   display: none;
   max-width: 400px;
