@@ -1,9 +1,11 @@
-<h1>Create a new transaction</h1>
+<div class='container form-box'>
+  <h2 class="transactions-title">Create a new transaction</h2>
 
-<%= simple_form_for @transaction do |f| %>
-  <%= f.input :transaction_type, as: :radio_buttons, collection: ['deposit', 'withdraw'] %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :account_id, :as => :hidden, :input_html => { :value => @child.id } %>
-  <%= f.input :amount %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for @transaction do |f| %>
+    <%= f.input :transaction_type, as: :radio_buttons, collection: ['Deposit', 'Withdraw'], label: 'Transaction Type' %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :account_id, :as => :hidden, :input_html => { :value => @child.id } %>
+    <%= f.input :amount %>
+    <%= f.button :submit, class: 'btn-transaction' %>
+  <% end %>
+</div>

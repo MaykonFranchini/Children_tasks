@@ -9,7 +9,7 @@
 
     <div class="balance-info">
       <div>
-        <p class="balance-name"><strong><%= @child.first_name.upcase %></strong></p>
+        <p class="balance-name"><strong><%= @child.first_name.upcase %> <%= @child.last_name[0].upcase %>.</strong></p>
       </div>
       <div>
         <a href='' id='transactionLink' class="transactionButton">New transaction</a>

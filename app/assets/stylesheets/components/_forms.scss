@@ -1,3 +1,125 @@
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
 #transactionForm {
   display: none;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.form-box {
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.transactions-title {
+  color: $gray;
+}
+.form-check input[type="radio"] {
+  cursor: pointer;
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.form-check label {
+  background-color: #ddd;
+  padding: 10px 20px;
+  font-family: sans-serif, Arial;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 4px;
+}
+
+.form-check input[type="radio"]:checked + label {
+  background-color:#1cc5b7;
+  // border-color: rgb(68, 104, 204);
+}
+
+// .form-check input[type="radio"]:focus + label {
+//   border: 2px dashed #444;
+// }
+
+.form-check label:hover {
+  background-color: #51fd93;
+}
+
+.transaction_transaction_type {
+  display: flex;
+  justify-content: center;
+}
+
+
+.form-group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.form-control {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  padding-bottom: 6px;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+
+
+  &:placeholder-shown ~ .text label, .integer label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+
+  .text label, .integer label {
+
+  position: absolute;
+  top: 0;
+  display: block;
+  transition:  label 0.2s;
+  font-size: 1rem;
+  outline: none !important;
+  color: $gray;
+}
+
+legend {
+  font-size: 1.3rem;
+  color: $gray;
+  text-align: left;
+  margin-bottom: -10px;
+}
+
+
+.form-control{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+textarea, input {
+  background: transparent !important;
+  outline: none;
+
+  &:focus {
+    outline-width: 0 !important;
+  }
+}
+
+
+
+.btn-transaction {
+  background: linear-gradient(to right, $primary,$secondary) !important;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
 }
