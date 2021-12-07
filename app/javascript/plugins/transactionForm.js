@@ -4,9 +4,14 @@ export function transactionFormDisplay() {
     const form = document.getElementById('transactionForm');
     const link = document.getElementById('transactionLink');
 
-    link.addEventListener('click', (event)=> {
+    if (link) {
+      link.addEventListener('click', (event)=> {
       event.preventDefault();
-      form.style.display = form.style.display == 'none' ? 'block' : 'none';
+
+      if (form) {
+        form.style.display = form.style.display == 'none' ? 'block' : 'none';
+      }
     })
+    }
   })
 }
