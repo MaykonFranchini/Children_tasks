@@ -32,6 +32,14 @@ $gray: #9b9b9b;
   position: fixed;
   width: 0;
 }
+.remember-box {
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  margin-bottom: 5px;
+}
+//////
 
 .form-check label {
   background-color: #ddd;
@@ -44,12 +52,7 @@ $gray: #9b9b9b;
 
 .form-check input[type="radio"]:checked + label {
   background-color:#1cc5b7;
-  // border-color: rgb(68, 104, 204);
 }
-
-// .form-check input[type="radio"]:focus + label {
-//   border: 2px dashed #444;
-// }
 
 .form-check label:hover {
   background-color: #51fd93;
@@ -75,7 +78,7 @@ $gray: #9b9b9b;
   border-bottom: 2px solid $gray;
   outline: 0;
   font-size: 1.3rem;
-  color: $white;
+  color: $gray;
   padding: 7px 0;
   background: transparent;
   padding-bottom: 6px;
@@ -131,4 +134,45 @@ textarea, input {
   border-radius: 10px;
   color: white;
   font-weight: 600;
+}
+.form-title {
+  font-size: 2rem;
+  background: -webkit-linear-gradient( $primary,$secondary);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-auth {
+  margin-bottom: 20px;
+  display: inline-block;
+  background: -webkit-linear-gradient( $primary,$secondary);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-auth-submit {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background: linear-gradient(to right, #9aebb9, #7df3e9) !important;
+  text-shadow: 1px 1px 1px gray;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
