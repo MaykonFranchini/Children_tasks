@@ -1,6 +1,20 @@
 table {
   margin: 40px auto;
 }
+.content {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+.fade:not(.show) {
+  opacity: 0;
+}
+.fade {
+  transition: opacity 0.25s linear;
+}
+
 #transactions td, #transactions th {
   border: 1px solid #ddd;
   padding: 8px;
