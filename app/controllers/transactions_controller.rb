@@ -5,19 +5,21 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    account = Account.find(params["transaction"]["account_id"])
-    if account.nil?
-      account = Account.create(child: params["transaction"]["account_id"])
+    if Account.where(:child_id => params["transaction"]["account_id"]).blank?
+      child = Child.find(params["transaction"]["account_id"])
+      account = Account.create(child: child)
+    else
+      account = Account.find(params["transaction"]["account_id"])
     end
 
     @transaction = Transaction.new(transaction_params)
     @transaction.account = account
 
-    if @transaction.transaction_type == 'deposit'
-      new_balance = account.balance + @transaction.amount
+    if @transaction.transaction_type == 'Deposit'
+      new_balance = account.balance + @transaction.amount.to_i
       account.update(balance: new_balance)
     else
-      new_balance = account.balance - @transaction.amount
+      new_balance = account.balance - @transaction.amount.to_i
       account.update(balance: new_balance)
     end
 
