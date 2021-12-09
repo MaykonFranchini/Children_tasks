@@ -1,5 +1,5 @@
 export function transactionFormDisplay() {
-  window.addEventListener('load', ()=> {
+  document.addEventListener('turbolinks:load', ()=> {
 
     const form = document.getElementById('transactionForm');
     const link = document.getElementById('transactionLink');

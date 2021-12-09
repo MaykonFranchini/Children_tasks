@@ -1,5 +1,5 @@
 export function tabs() {
-  window.addEventListener('load', ()=> {
+  document.addEventListener('turbolinks:load', ()=> {
     const tabs = document.querySelectorAll('.tab-underlined');
     const contents = document.querySelectorAll('.content');
 
@@ -14,7 +14,6 @@ export function tabs() {
 
         contents.forEach((content) => {
           content.classList.remove('show')
-          console.log(content.dataset.info)
         })
 
       element.classList.add('active')

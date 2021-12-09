@@ -25,11 +25,10 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { transactionFormDisplay } from '../plugins/transactionForm'
 import { tabs } from '../plugins/tabs'
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   transactionFormDisplay();
-  tabs()
-
-
+  tabs();
 });
