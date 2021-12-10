@@ -44,7 +44,7 @@
 
               <div class="transaction-description">
                 <div>
-                  <% if transaction.transaction_type === 'deposit' %>
+                  <% if transaction.transaction_type === 'deposit' || transaction.transaction_type === 'Deposit' %>
                     <i class="fas fa-arrow-up deposit"></i>
                   <% else %>
                     <i class="fas fa-arrow-down withdraw"></i>
