@@ -37,24 +37,29 @@
     </div>
 
     <div class="content">
-      <div class="content-item fade show" data-info="Transactions">
-        <table id="transactions">
-          <tr>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Amount</th>
-          </tr>
+      <div id="transact" class="content-item fade show" data-info="Transactions">
 
           <% @child.transactions.each  do |transaction| %>
-            <tr class=<%=transaction.transaction_type%>>
-              <td><%= Date.parse(transaction.created_at.to_formatted_s).strftime('%d %b %Y') %></td>
-              <td><%= transaction.transaction_type %></td>
-              <td><%= transaction.description %></td>
-              <td>£<%= transaction.amount %></td>
-            </tr>
+            <div class="card-transaction-item">
+
+              <div class="transaction-description">
+                <div>
+                  <% if transaction.transaction_type === 'deposit' %>
+                    <i class="fas fa-arrow-up deposit"></i>
+                  <% else %>
+                    <i class="fas fa-arrow-down withdraw"></i>
+                  <% end %>
+                </div>
+                <div>
+                  <p><small><%= Date.parse(transaction.created_at.to_formatted_s).strftime('%d %b %Y') %></small></p>
+                  <p><%= transaction.description %></p>
+                </div>
+              </div>
+              <div class="amount">
+                <p>£<%= transaction.amount %></p>
+              </div>
+            </div>
           <% end %>
-        </table>
       </div>
 
       <div class="content-item fade" data-info="Tasks">

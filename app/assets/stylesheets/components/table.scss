@@ -1,5 +1,8 @@
-table {
-  margin: 10px auto;
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content > .content-item {
@@ -35,9 +38,11 @@ table {
 }
 
 .deposit, .Deposit{
-  color: blue;
+  color: #61bd7c;
+  background-color: #d2f6dd;
 }
 
 .withdraw, .Withdraw {
-  color: red;
+  color: #f57171;
+  background-color: #fbcfcf;
 }
