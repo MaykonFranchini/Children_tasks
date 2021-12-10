@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
     end
 
     if @transaction.save
-      redirect_to '/user'
+      redirect_to child_path(account.child_id)
     else
     render :new
     end
@@ -42,7 +42,7 @@ class TransactionsController < ApplicationController
        account.update(balance: balance)
      end
      transaction.destroy
-     redirect_to '/user'
+     redirect_to child_path(account.child_id)
     end
   end
 
