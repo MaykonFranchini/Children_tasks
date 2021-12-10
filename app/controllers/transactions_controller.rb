@@ -30,6 +30,22 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def destroy
+    transaction = Transaction.find(params[:id])
+    if transaction
+      account = Account.find(transaction.account_id)
+      if transaction.transaction_type.downcase == 'deposit'
+        balance = account.balance - transaction.amount
+        account.update(balance: balance)
+     else
+       balance = account.balance + transaction.amount
+       account.update(balance: balance)
+     end
+     transaction.destroy
+     redirect_to '/user'
+    end
+  end
+
   private
     def transaction_params
       params.require(:transaction).permit(:transaction_type, :description, :amount, :account_id)

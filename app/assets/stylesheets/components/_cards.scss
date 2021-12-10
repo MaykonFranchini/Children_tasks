@@ -98,3 +98,13 @@
     padding: 5px;
   }
 }
+
+.trash {
+  color: gray;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}

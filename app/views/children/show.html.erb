@@ -57,6 +57,10 @@
               </div>
               <div class="amount">
                 <p>£<%= transaction.amount %></p>
+                 <%= link_to '<i class="fas fa-trash-alt trash"></i>'.html_safe,
+                      transaction_path(transaction),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
               </div>
             </div>
           <% end %>
