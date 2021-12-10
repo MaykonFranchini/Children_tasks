@@ -1,18 +1,23 @@
 table {
   margin: 10px auto;
 }
-.content {
+
+.content > .content-item {
   display: none;
 }
 
-.show {
+
+.content >.show {
   display: block;
 }
+
+
 .fade:not(.show) {
   opacity: 0;
 }
+
 .fade {
-  transition: opacity 0.25s linear;
+  transition: opacity .5s linear;
 }
 
 #transactions td, #transactions th {
