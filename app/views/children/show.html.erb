@@ -12,7 +12,8 @@
         <p class="balance-name"><strong><%= @child.first_name.upcase %> <%= @child.last_name[0].upcase %>.</strong></p>
       </div>
       <div>
-        <a href='' id='transactionLink' class="transactionButton">New transaction</a>
+        <i id="card" class="fab fa-cc-apple-pay"></i>
+        <%# <a href='' id='transactionLink' class="transactionButton">New transaction</a> %>
       </div>
     </div>
   </div>
@@ -21,42 +22,60 @@
     <div class="tabs-group">
       <ul class="list-inline tabs-underlined">
       <li>
-        <a href="#" class="tab-underlined active">Transactions</a>
+        <a href="#" class="tab-underlined active"><i class="fas fa-file-invoice-dollar"></i>Transactions</a>
       </li>
       <li>
-        <a href="#" class="tab-underlined">Tasks</a>
+        <a href="#" class="tab-underlined"><i class="fas fa-clipboard-list"></i>Tasks</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined"><i class="fas fa-hand-holding-usd"></i>New transaction</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined"><i class="fas fa-thumbtack"></i>New task</a>
       </li>
     </ul>
     </div>
 
-    <div class="content fade show" data-info="Transactions">
-      <table id="transactions">
-        <tr>
-          <th>Date</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Amount</th>
-        </tr>
+    <div class="content">
+      <div id="transact" class="content-item fade show" data-info="Transactions">
 
-        <% @child.transactions.each  do |transaction| %>
-          <tr class=<%=transaction.transaction_type%>>
-            <td><%= Date.parse(transaction.created_at.to_formatted_s).strftime('%d %b %Y') %></td>
-            <td><%= transaction.transaction_type %></td>
-            <td><%= transaction.description %></td>
-            <td>£<%= transaction.amount %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+          <% @child.transactions.each  do |transaction| %>
+            <div class="card-transaction-item">
 
-    <div class="content fade tasks" data-info="Tasks">
-      <p>You don't have any tasks yet</p>
+              <div class="transaction-description">
+                <div>
+                  <% if transaction.transaction_type === 'deposit' %>
+                    <i class="fas fa-arrow-up deposit"></i>
+                  <% else %>
+                    <i class="fas fa-arrow-down withdraw"></i>
+                  <% end %>
+                </div>
+                <div>
+                  <p><small><%= Date.parse(transaction.created_at.to_formatted_s).strftime('%d %b %Y') %></small></p>
+                  <p><%= transaction.description %></p>
+                </div>
+              </div>
+              <div class="amount">
+                <p>£<%= transaction.amount %></p>
+              </div>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="content-item fade" data-info="Tasks">
+        <p>You don't have any tasks yet</p>
+      </div>
+
+      <div class="content-item fade form" data-info="New transaction" id="transactionForm">
+        <%= render 'shared/transaction_form', transaction: @transaction %>
+      </div>
+
+      <div class="content-item fade" data-info="New task">
+        <p><i class="fas fa-paint-roller"></i> Sorry, we're building the form. <i class="fas fa-hammer"></i></p>
+      </div>
     </div>
   </div>
 
-  <div id="transactionForm">
-    <%= render 'shared/transaction_form', transaction: @transaction %>
-  </div>
 
 
 

@@ -1,7 +1,7 @@
 export function tabs() {
   document.addEventListener('turbolinks:load', ()=> {
     const tabs = document.querySelectorAll('.tab-underlined');
-    const contents = document.querySelectorAll('.content');
+    const contents = document.querySelectorAll('.content-item');
 
 
     tabs.forEach((element) => {
