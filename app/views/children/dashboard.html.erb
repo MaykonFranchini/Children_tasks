@@ -59,7 +59,27 @@
       </div>
 
       <div class="content-item fade" data-info="Tasks">
-        <p>You don't have any pending tasks.</p>
+        <% @pendingTasks.each do |task| %>
+            <div class="task-card children">
+              <div>
+                <input type="checkbox" id="taskCheckbox">
+                <%= task.title %>
+              </div>
+             <div>
+                <%= link_to '<i class="fas fa-check"></i>'.html_safe,
+                    task_path(task),
+                    class: 'taskSubmit',
+                    method: :put,
+                    data: { confirm: "Are you sure that you completed this task?" } %>
+              <div>
+            </div>
+        <% end  %>
+        <% if @pendingTasks.count == 0 %>
+          <div class="task-card parent">
+            <span>You don't have any pending tasks. Well done!</span>
+          </div>
+        <% end  %>
+
       </div>
 
     </div>

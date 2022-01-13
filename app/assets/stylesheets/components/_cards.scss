@@ -59,7 +59,7 @@
 
 
 
-.card-transaction-item {
+.card-transaction-item, .task-card {
   background-color: white;
   display: flex;
   width: 600px;
@@ -107,4 +107,37 @@
   &:hover {
     opacity: 1;
   }
+}
+
+.task-card {
+  background-color: white;
+  display: flex;
+  width: 500px;
+  max-width: 800px;
+  align-items: center;
+  padding:  5px 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.task-card.parent {
+  justify-content: center;
+}
+
+.task-card.children {
+  justify-content: space-between;
+}
+.task-description {
+  text-align: center;
+}
+
+
+.taskSubmit {
+  opacity: 0;
+  transition: all .4s ease-in-out;
+}
+
+.taskSubmit.checked {
+  opacity: 1;
 }

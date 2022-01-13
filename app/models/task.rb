@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
   belongs_to :child
 
-   validates :title, uniqueness: true, length: { minimum: 3 }
+   validates :title, presence: true, length: { minimum: 3 }
 end

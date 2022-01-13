@@ -67,7 +67,19 @@
       </div>
 
       <div class="content-item fade" data-info="Tasks">
-        <p>You don't have any tasks yet</p>
+        <% @pendingTasks.each do |task| %>
+            <div class="task-card parent">
+              <div class="task-description">
+                <%= task.title %>
+              </div>
+            </div>
+        <% end  %>
+        <% if @pendingTasks.count == 0 %>
+          <div class="task-card parent">
+            <span>No pending tasks!</span>
+          </div>
+        <% end %>
+
       </div>
 
       <div class="content-item fade form" data-info="New transaction" id="transactionForm">
@@ -75,7 +87,7 @@
       </div>
 
       <div class="content-item fade" data-info="New task">
-        <p><i class="fas fa-paint-roller"></i> Sorry, we're building the form. <i class="fas fa-hammer"></i></p>
+        <%= render 'shared/task_form', task: @task %>
       </div>
     </div>
   </div>
