@@ -4,6 +4,7 @@ class Child < ApplicationRecord
   belongs_to :user
   has_many :account
   has_many :transactions ,through: :account
+  has_many :tasks, dependent: :destroy
 
 
   devise :database_authenticatable, :registerable,
