@@ -24,9 +24,25 @@ class TransactionsController < ApplicationController
     end
 
     if @transaction.save
-      redirect_to '/user'
+      redirect_to child_path(account.child_id)
     else
     render :new
+    end
+  end
+
+  def destroy
+    transaction = Transaction.find(params[:id])
+    if transaction
+      account = Account.find(transaction.account_id)
+      if transaction.transaction_type.downcase == 'deposit'
+        balance = account.balance - transaction.amount
+        account.update(balance: balance)
+     else
+       balance = account.balance + transaction.amount
+       account.update(balance: balance)
+     end
+     transaction.destroy
+     redirect_to child_path(account.child_id)
     end
   end
 
