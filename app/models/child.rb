@@ -6,7 +6,6 @@ class Child < ApplicationRecord
   has_many :transactions ,through: :account
   has_many :tasks, dependent: :destroy
 
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
