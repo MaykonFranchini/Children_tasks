@@ -122,7 +122,12 @@
 }
 
 .task-card.parent {
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.pending {
+  background-color: rgb(253, 216, 167);
+  padding: 5px 15px;
 }
 
 .task-card.children {

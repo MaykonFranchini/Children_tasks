@@ -68,9 +68,12 @@
 
       <div class="content-item fade" data-info="Tasks">
         <% @pendingTasks.each do |task| %>
-            <div class="task-card parent">
+            <div class="task-card parent <%= task.status %>">
               <div class="task-description">
-                <%= task.title %>
+                <%= task.title.capitalize %>
+              </div>
+              <div>
+                <%= task.status.upcase %>
               </div>
             </div>
         <% end  %>
