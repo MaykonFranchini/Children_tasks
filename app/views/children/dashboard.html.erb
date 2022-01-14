@@ -1,5 +1,6 @@
 <div class="container text-center">
 
+
   <div class="balance-card">
     <div class="balance-info">
       <div>Balance</div><div><strong>£<% @child.account.each do |account| %>
@@ -27,15 +28,59 @@
       <li>
         <a href="#" class="tab-underlined"><i class="fas fa-clipboard-list"></i>Tasks</a>
       </li>
+      <li>
+
+        <!-- Button trigger modal -->
+          <button type="button" class="btn-notifications" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="far fa-bell"></i>
+            <small class="notifications-count">
+                <% if @notifications.count > 0  %>
+                  <%= @notifications.count %>
+                <% end %>
+            </small>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
+                  <button type="button" class="btn-modal-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+
+                    <% if @notifications.count == 0  %>
+                      <span>You don't have new notifications</span>
+                    <% else  %>
+                      <% @notifications.each do |message| %>
+                          <div class="notification-card">
+                            <%= message.content %>
+                            <%= link_to '<i class="fas fa-times"></i>'.html_safe,
+                              message_path(message),
+                              method: :put
+                            %>
+                          </div>
+                      <% end %>
+                    <% end  %>
+                </div>
+                <%# <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div> %>
+              </div>
+            </div>
+          </div>
+       </li>
     </ul>
     </div>
 
     <div class="content">
       <div id="transact" class="content-item fade show" data-info="Transactions">
-        <% if @child.transactions.count <= 0  %>
+        <% if @transactions.count == 0  %>
           <p>You don't have transactions yet!</p>
         <% end  %>
-        <% @child.transactions.each  do |transaction| %>
+        <% @transactions.each  do |transaction| %>
           <div class="card-transaction-item">
 
             <div class="transaction-description">
@@ -60,19 +105,19 @@
 
       <div class="content-item fade" data-info="Tasks">
         <% @pendingTasks.each do |task| %>
-            <div class="task-card children">
-              <div>
-                <input type="checkbox" id="taskCheckbox">
-                <%= task.title %>
-              </div>
-             <div>
-                <%= link_to '<i class="fas fa-check"></i>'.html_safe,
-                    task_path(task),
-                    class: 'taskSubmit',
-                    method: :put,
-                    data: { confirm: "Are you sure that you completed this task?" } %>
-              <div>
+          <div class="task-card children">
+            <div>
+              <input type="checkbox" id="taskCheckbox">
+              <%= task.title %>
             </div>
+            <div>
+              <%= link_to '<i class="fas fa-check"></i>'.html_safe,
+                  task_path(task),
+                  class: 'taskSubmit',
+                  method: :put,
+                  data: { confirm: "Are you sure that you completed this task?" } %>
+            </div>
+          </div>
         <% end  %>
         <% if @pendingTasks.count == 0 %>
           <div class="task-card parent">

@@ -4,7 +4,8 @@ export function tabs() {
     const contents = document.querySelectorAll('.content-item');
 
 
-    tabs.forEach((element) => {
+    if(tabs) {
+      tabs.forEach((element) => {
       element.addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -24,5 +25,6 @@ export function tabs() {
         })
       })
     })
+    }
   })
 }

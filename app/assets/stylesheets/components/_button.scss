@@ -1,0 +1,21 @@
+.btn-notifications, .btn-modal-close {
+  background-color: transparent;
+  border: none;
+}
+
+.btn-notifications {
+  position: relative;
+  font-size: 18px;
+}
+
+.notifications-count {
+  padding: 0px 4px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: 2px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+}

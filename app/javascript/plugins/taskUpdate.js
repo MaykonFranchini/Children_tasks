@@ -5,7 +5,8 @@ export function taskUpdate() {
     const task = document.getElementById('taskCheckbox');
     const submit = document.querySelector('.taskSubmit');
 
-    task.addEventListener('click', (event) => {
+    if(task) {
+      task.addEventListener('click', (event) => {
       if(!task.checked) {
         submit.classList.remove('checked');
         alert('Select the task before submit!');
@@ -13,6 +14,7 @@ export function taskUpdate() {
         submit.classList.add('checked');
       }
     })
+    }
 
 
   })
