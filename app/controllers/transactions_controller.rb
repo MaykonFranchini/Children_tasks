@@ -24,7 +24,17 @@ class TransactionsController < ApplicationController
     end
 
     if @transaction.save
-      redirect_to child_path(account.child_id)
+      child = params['transaction']['account_id']
+      if Notification.find(child).blank?
+        notification = Notification.create(child_id: child)
+      else
+        notification = Notification.find(child)
+      end
+
+      message = Message.new(child_id: child, notification_id: notification.id, content: "You have a #{@transaction.transaction_type} of £ #{@transaction.amount}.")
+      if message.save
+        redirect_to child_path(message.child_id)
+      end
     else
     render :new
     end
