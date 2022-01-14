@@ -33,6 +33,11 @@
         <!-- Button trigger modal -->
           <button type="button" class="btn-notifications" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="far fa-bell"></i>
+            <small class="notifications-count">
+                <% if @notifications.count > 0  %>
+                  <%= @notifications.count %>
+                <% end %>
+            </small>
           </button>
 
           <!-- Modal -->
@@ -44,25 +49,20 @@
                   <button type="button" class="btn-modal-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="modal-body">
-                  <% @notifications.each do |notification| %>
-                    <% if notification.messages.count == 0  %>
+
+                    <% if @notifications.count == 0  %>
                       <span>You don't have new notifications</span>
                     <% else  %>
-                      <% notification.messages.each do |message| %>
-                        <%if !message.read %>
+                      <% @notifications.each do |message| %>
                           <div class="notification-card">
                             <%= message.content %>
                             <%= link_to '<i class="fas fa-times"></i>'.html_safe,
                               message_path(message),
                               method: :put
                             %>
-                            <%  %>
                           </div>
-
-                        <% end  %>
                       <% end %>
                     <% end  %>
-                  <% end %>
                 </div>
                 <%# <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -105,19 +105,19 @@
 
       <div class="content-item fade" data-info="Tasks">
         <% @pendingTasks.each do |task| %>
-            <div class="task-card children">
-              <div>
-                <input type="checkbox" id="taskCheckbox">
-                <%= task.title %>
-              </div>
-             <div>
-                <%= link_to '<i class="fas fa-check"></i>'.html_safe,
-                    task_path(task),
-                    class: 'taskSubmit',
-                    method: :put,
-                    data: { confirm: "Are you sure that you completed this task?" } %>
-              <div>
+          <div class="task-card children">
+            <div>
+              <input type="checkbox" id="taskCheckbox">
+              <%= task.title %>
             </div>
+            <div>
+              <%= link_to '<i class="fas fa-check"></i>'.html_safe,
+                  task_path(task),
+                  class: 'taskSubmit',
+                  method: :put,
+                  data: { confirm: "Are you sure that you completed this task?" } %>
+            </div>
+          </div>
         <% end  %>
         <% if @pendingTasks.count == 0 %>
           <div class="task-card parent">
