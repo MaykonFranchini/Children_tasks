@@ -45,11 +45,23 @@
                 </div>
                 <div class="modal-body">
                   <% @notifications.each do |notification| %>
-                    <% notification.messages.each do |message| %>
-                      <div>
-                        <%= message.content %>
-                      </div>
-                    <% end %>
+                    <% if notification.messages.count == 0  %>
+                      <span>You don't have new notifications</span>
+                    <% else  %>
+                      <% notification.messages.each do |message| %>
+                        <%if !message.read %>
+                          <div class="notification-card">
+                            <%= message.content %>
+                            <%= link_to '<i class="fas fa-times"></i>'.html_safe,
+                              message_path(message),
+                              method: :put
+                            %>
+                            <%  %>
+                          </div>
+
+                        <% end  %>
+                      <% end %>
+                    <% end  %>
                   <% end %>
                 </div>
                 <%# <div class="modal-footer">
@@ -65,10 +77,10 @@
 
     <div class="content">
       <div id="transact" class="content-item fade show" data-info="Transactions">
-        <% if @child.transactions.count <= 0  %>
+        <% if @transactions.count == 0  %>
           <p>You don't have transactions yet!</p>
         <% end  %>
-        <% @child.transactions.each  do |transaction| %>
+        <% @transactions.each  do |transaction| %>
           <div class="card-transaction-item">
 
             <div class="transaction-description">

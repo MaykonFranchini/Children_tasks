@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
         notification = Notification.find(child)
       end
 
-      message = Message.new(child_id: child, notification_id: notification.id, content: "You have a #{@transaction.transaction_type} of £ #{@transaction.amount}.")
+      message = Message.new(child_id: child, notification_id: notification.id, content: "New transaction. #{@transaction.transaction_type.capitalize} of £ #{@transaction.amount}. - #{@transaction.description}")
       if message.save
         redirect_to child_path(message.child_id)
       end

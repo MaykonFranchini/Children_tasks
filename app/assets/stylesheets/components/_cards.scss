@@ -146,3 +146,13 @@
 .taskSubmit.checked {
   opacity: 1;
 }
+
+
+.notification-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background-color: rgb(170, 208, 245);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-top: 5px;
+}
