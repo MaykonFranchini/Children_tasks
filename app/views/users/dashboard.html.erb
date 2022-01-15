@@ -1,16 +1,16 @@
-<h1>Welcome <%=@user.first_name%> <%=@user.last_name%> <%=@user.date_of_birth%></h1>
+<h1>Welcome <%=@user.first_name%> <%=@user.last_name%></h1>
 <div class="family-cards">
   <% @user.children.each do |child| %>
-    <%= link_to child_path(child.id) do %>
-      <div class="card-trip">
+    <div class="card-kids">
+      <%= link_to child_path(child.id) do %>
         <h3><%= child.first_name %></h3>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
   <% end  %>
-  <%= link_to new_child_registration_url do %>
-      <div class="card-trip">
-        <h3>Add a child to your group</h3>
-      </div>
-    <% end %>
+    <div class="card-kids-new">
+      <%= link_to new_child_registration_url do %>
+        <h3></i>Add new child</h3>
+      <% end %>
+    </div>
 </div>

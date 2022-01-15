@@ -1,16 +1,55 @@
 .family-cards {
   display: flex;
   margin: 0 auto;
+  max-width: 600px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.card-trip {
+.card-kids {
   display: flex;
-  margin: 0 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #fff;
-  width: 200px;
-  height:200px;
+  width: 150px;
+  height:100px;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #11998e81,#38ef7e8a);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  h3 {
+    font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.card-kids-new {
+  width: 150px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: 20px;
+    background-clip: inherit;
+    background: -webkit-linear-gradient(#11998ec4,#38ef7ec4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0;
+  }
 }
 
 .balance-card {
