@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
 
     if @transaction.save
       child = params['transaction']['account_id']
-      if Notification.find(child).blank?
+      if Notification.where(child_id: child).blank?
         notification = Notification.create(child_id: child)
       else
         notification = Notification.find(child)

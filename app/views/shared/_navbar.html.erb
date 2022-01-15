@@ -41,26 +41,22 @@
                       <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
                       <button type="button" class="btn-modal-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
                     </div>
-                    <div class="modal-body">
 
-                        <% if @notifications.count == 0  %>
-                          <span>You don't have new notifications</span>
-                        <% else  %>
-                          <% @notifications.each do |message| %>
-                              <div class="notification-card">
-                                <%= message.content %>
-                                <%= link_to '<i class="fas fa-times"></i>'.html_safe,
-                                  message_path(message),
-                                  method: :put
-                                %>
-                              </div>
-                          <% end %>
-                        <% end  %>
+                    <div class="modal-body">
+                      <% if @notifications.count == 0  %>
+                        <span>You don't have new notifications</span>
+                      <% else  %>
+                        <% @notifications.each do |message| %>
+                          <div class="notification-card">
+                            <%= message.content %>
+                            <%= link_to '<i class="fas fa-times"></i>'.html_safe,
+                              message_path(message),
+                              method: :put
+                            %>
+                          </div>
+                        <% end %>
+                      <% end  %>
                     </div>
-                    <%# <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div> %>
                   </div>
                 </div>
               </div>
