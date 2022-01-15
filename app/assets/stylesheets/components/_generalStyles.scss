@@ -1,0 +1,59 @@
+
+@media only screen and (max-width: 600px) {
+
+  body {
+    font-size: .75em;
+    max-width: 90%;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .family-cards {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    max-width: 100%;
+    margin: 5px;
+  }
+
+  .card-transaction-item, .task-card {
+    width: 100%;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .list-inline i {
+    display: none;
+  }
+
+
+  .tabs-underlined .tab-underlined.active  {
+    border: none;
+  }
+
+  .tabs-underlined .tab-underlined {
+    margin: 0;
+  }
+
+}
+
+// @media only screen and (min-width: 600px) {...}
+
+
+// @media only screen and (min-width: 768px) {...}
+
+
+// @media only screen and (min-width: 992px) {...}
+
+// @media only screen and (min-width: 1200px) {...}
