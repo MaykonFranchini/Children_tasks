@@ -3,16 +3,16 @@
 
   body {
     font-size: .75em;
-    max-width: 90%;
+    max-width: 95%;
 
     h2 {
       font-size: 1.5rem;
     }
   }
 
+
   .container {
     margin: 0 auto;
-    padding: 0;
   }
 
   .family-cards {
@@ -20,9 +20,17 @@
     align-items: center;
   }
 
+  .content-item.fade.show {
+    width: 100%;
+  }
+
+  .form-group.radio_buttons.optional.transaction_transaction_type {
+    width: 90%;
+  }
+
   .content {
-    max-width: 100%;
-    margin: 5px;
+    max-width: 90%;
+    margin: auto;
   }
 
   .card-transaction-item, .task-card {
@@ -30,7 +38,7 @@
   }
 
   .brand {
-    font-size: 14px;
+    display: none;
   }
 
   .list-inline i {
@@ -44,6 +52,19 @@
 
   .tabs-underlined .tab-underlined {
     margin: 0;
+  }
+
+  .navbar.navbar-expand.navbar-light.navbar-lewagon {
+    width: 100%;
+  }
+
+  .auth-form {
+    margin: 10px;
+  }
+
+  .login {
+    width: 100px;
+    height: 150px;
   }
 
 }
