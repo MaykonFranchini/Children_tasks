@@ -176,14 +176,23 @@
   text-align: center;
 }
 
+.taskSubmit:disabled {
+  padding: 3px 20px;
+  border: 1px solid #c4c5c5;
+  color: #c4c5c5;
+  font-weight: bold;
+  border-radius: 5px;
+
+  transition: all .4s ease-in-out;
+
+}
 
 .taskSubmit.checked {
-  opacity: 1;
   padding: 3px 20px;
   border: 1px solid #38ef7d;
   color: #38ef7d;
   font-weight: bold;
-
+  border-radius: 5px;
   transition: all .4s ease-in-out;
 
   &:hover {
