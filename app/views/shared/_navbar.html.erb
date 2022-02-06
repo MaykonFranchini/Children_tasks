@@ -79,6 +79,9 @@
         </li>
       <% else %>
         <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "signup-button" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Login", selectlogin_path, class: "login-button" %>
         </li>
       <% end %>

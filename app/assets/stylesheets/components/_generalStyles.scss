@@ -16,6 +16,25 @@
     width:180px;
   }
 
+  .site-examples {
+    max-width: 100%;
+    display: block;
+  }
+
+  .home-exemple {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .image-examples-div img {
+    max-width: 100%;
+  }
+
+  .home-exemple.reverse {
+    flex-direction: column-reverse;
+    margin-top: 20px;
+  }
+
   ////
 
   body {
@@ -80,7 +99,7 @@
   }
 
   .login {
-    width: 100px;
+    width: 120px;
     height: 150px;
   }
 
