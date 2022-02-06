@@ -3,6 +3,20 @@
   border: none;
 }
 
+.login-button {
+  background-color: #38ef7d;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    color:#fff;
+    filter: opacity(.7);
+  }
+}
+
 .btn-notifications {
   position: relative;
   font-size: 18px;
