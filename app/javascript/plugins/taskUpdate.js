@@ -2,18 +2,24 @@ export function taskUpdate() {
 
   document.addEventListener('turbolinks:load', ()=> {
 
-    const task = document.getElementById('taskCheckbox');
-    const submit = document.querySelector('.taskSubmit');
+    const tasks = document.querySelectorAll('.taskCheckbox');
+    const submit = document.querySelectorAll('.taskSubmit');
 
-    if(task) {
-      task.addEventListener('click', (event) => {
-      if(!task.checked) {
-        submit.classList.remove('checked');
-        alert('Select the task before submit!');
+    if(tasks) {
+      tasks.forEach((task) => {
+        task.addEventListener('click', (event) => {
+      if(task.checked) {
+        const button = document.getElementById(task.dataset.button);
+        button.disabled = false;
+        button.classList.add('checked');
       } else {
-        submit.classList.add('checked');
+        submit.forEach((button) => {
+          button.classList.remove('checked');
+          button.disabled = true;
+        })
       }
     })
+      })
     }
 
 

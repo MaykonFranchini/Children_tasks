@@ -4,7 +4,7 @@ class ChildrenController < ApplicationController
   def dashboard
     @child = Child.find(current_child.id)
     @pendingTasks = Task.where(child_id: current_child.id, status: 'pending')
-    @notifications = Message.where("child_id = ? AND read =?", @child.id, false)
+    @notifications = Message.where("child_id = ? AND read =?", @child.id, false).order(created_at: :desc)
     @transactions = Transaction.where(account_id: @child).order(created_at: :desc)
   end
 

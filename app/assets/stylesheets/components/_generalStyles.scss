@@ -1,6 +1,42 @@
 
 @media only screen and (max-width: 600px) {
 
+  //home page
+
+  .home-page-title {
+    font-size: 25px;
+  }
+
+  .banner-description {
+    font-size: 9px;
+    font-weight: bold;
+  }
+
+  .banner-image {
+    width:180px;
+  }
+
+  .site-examples {
+    max-width: 100%;
+    display: block;
+  }
+
+  .home-exemple {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .image-examples-div img {
+    max-width: 100%;
+  }
+
+  .home-exemple.reverse {
+    flex-direction: column-reverse;
+    margin-top: 20px;
+  }
+
+  ////
+
   body {
     font-size: .75em;
     max-width: 95%;
@@ -63,7 +99,7 @@
   }
 
   .login {
-    width: 100px;
+    width: 120px;
     height: 150px;
   }
 

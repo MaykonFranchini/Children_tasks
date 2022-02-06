@@ -63,13 +63,15 @@
         <% @pendingTasks.each do |task| %>
           <div class="task-card children">
             <div>
-              <input type="checkbox" id="taskCheckbox">
+              <input type="checkbox" class="taskCheckbox" data-button="<%= task.title %>" required>
               <%= task.title %>
             </div>
             <div>
-              <%= link_to '<i class="fas fa-check"></i>'.html_safe,
+              <%= button_to 'Done',
                   task_path(task),
                   class: 'taskSubmit',
+                  id: task.title,
+                  disabled: :true,
                   method: :put,
                   data: { confirm: "Are you sure that you completed this task?" } %>
             </div>
