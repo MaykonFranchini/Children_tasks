@@ -177,15 +177,19 @@
 }
 
 
-.taskSubmit {
-  opacity: 0;
-  transition: all .4s ease-in-out;
-}
-
 .taskSubmit.checked {
   opacity: 1;
-}
+  padding: 3px 20px;
+  border: 1px solid #38ef7d;
+  color: #38ef7d;
+  font-weight: bold;
 
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
 
 .notification-card {
   display: flex;
