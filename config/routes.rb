@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   resources :transactions, only: [:new, :create, :destroy]
   resources :tasks
   resources :messages, only: [:update]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  authenticate :user do
+  mount Sidekiq::Web => '/sidekiq'
+end
 end

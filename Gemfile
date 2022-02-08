@@ -36,6 +36,9 @@ gem 'devise'
 # authorization
 # gem 'pundit'
 
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'

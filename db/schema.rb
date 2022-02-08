@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_075218) do
+ActiveRecord::Schema.define(version: 2022_02_07_142317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 2022_01_14_075218) do
     t.index ["child_id"], name: "index_notifications_on_child_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "amount"
+    t.string "description"
+    t.bigint "child_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_subscriptions_on_child_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.string "status", default: "pending"
@@ -88,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_01_14_075218) do
     t.string "first_name"
     t.string "last_name"
     t.date "date_of_birth"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -97,6 +107,7 @@ ActiveRecord::Schema.define(version: 2022_01_14_075218) do
   add_foreign_key "messages", "children"
   add_foreign_key "messages", "notifications"
   add_foreign_key "notifications", "children"
+  add_foreign_key "subscriptions", "children"
   add_foreign_key "tasks", "children"
   add_foreign_key "transactions", "accounts"
 end
