@@ -22,6 +22,9 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem "minitest-rails", "~> 6.1.0"
+
+
 #stimulus js
 gem 'stimulus-rails'
 # Use Active Storage variant
@@ -48,6 +51,7 @@ group :development, :test do  gem 'pry-byebug'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'launchy'
 end
 
 group :development do
