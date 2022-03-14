@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if current_child
-      @notifications = Message.where("child_id = ? AND read =?", current_child.id, false).order(created_at: :desc)
+      @notifications = Message.unread(current_child.id)
     end
 
   end

@@ -3,16 +3,17 @@ class ChildrenController < ApplicationController
 
   def dashboard
     @child = Child.find(current_child.id)
-    @pendingTasks = Task.where(child_id: current_child.id, status: 'pending')
-    @notifications = Message.where("child_id = ? AND read =?", @child.id, false).order(created_at: :desc)
-    @transactions = Transaction.where(account_id: @child).order(created_at: :desc)
+    @pendingTasks = Task.pending_tasks(current_child.id)
+    @notifications = Message.unread(@child.id)
+    @transactions = Transaction.list(@child)
   end
 
   def show
     @transaction = Transaction.new
     @task = Task.new
-    @pendingTasks = Task.where(child_id: params[:id], status: 'pending')
+    @pendingTasks = Task.pending_tasks(params[:id])
     @child = Child.find(params[:id])
-    @transactions = Transaction.where(account_id: @child).order(created_at: :desc)
+    @transactions = Transaction.list(@child)
   end
+
 end

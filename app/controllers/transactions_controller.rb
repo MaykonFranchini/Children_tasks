@@ -5,35 +5,33 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    if Account.where(:child_id => params["transaction"]["account_id"]).blank?
-      child = Child.find(params["transaction"]["account_id"])
-      account = Account.create(child: child)
-    else
-      account = Account.find(params["transaction"]["account_id"])
+
+    child = Child.find(params["transaction"]["account_id"])
+    new_account = Account.where(child_id: params["transaction"]["account_id"])[0]
+
+    if new_account.blank?
+      new_account = Account.create(child: child)
     end
 
     @transaction = Transaction.new(transaction_params)
-    @transaction.account = account
+    @transaction.account = new_account
 
-    if @transaction.transaction_type == 'Deposit'
-      new_balance = account.balance + @transaction.amount.to_i
-      account.update(balance: new_balance)
-    else
-      new_balance = account.balance - @transaction.amount.to_i
-      account.update(balance: new_balance)
-    end
+    new_balance = @transaction.transaction_type.downcase == 'deposit' ? new_account.balance + @transaction.amount.to_i : new_account.balance - @transaction.amount.to_i
+    new_account.update(balance: new_balance)
 
     if @transaction.save
-      child = params['transaction']['account_id']
-      if Notification.where(child_id: child).blank?
-        notification = Notification.create(child_id: child)
-      else
-        notification = Notification.find(child)
+
+      notification = Notification.where(child_id: child)[0]
+      if notification.blank?
+        notification = Notification.new(child_id: child.id)
+        notification.save
       end
 
-      message = Message.new(child_id: child, notification_id: notification.id, content: "New transaction. #{@transaction.transaction_type.capitalize} of £ #{@transaction.amount}. - #{@transaction.description}")
+
+      message = Message.new(child_id: child.id, notification_id: notification.id, content: "New transaction. #{@transaction.transaction_type.capitalize} of £ #{@transaction.amount}. - #{@transaction.description}")
+
       if message.save
-        redirect_to child_path(message.child_id)
+        redirect_to child_path(child)
       end
     else
     render :new
@@ -42,18 +40,11 @@ class TransactionsController < ApplicationController
 
   def destroy
     transaction = Transaction.find(params[:id])
-    if transaction
-      account = Account.find(transaction.account_id)
-      if transaction.transaction_type.downcase == 'deposit'
-        balance = account.balance - transaction.amount
-        account.update(balance: balance)
-     else
-       balance = account.balance + transaction.amount
-       account.update(balance: balance)
-     end
-     transaction.destroy
-     redirect_to child_path(account.child_id)
-    end
+    account = Account.find(transaction.account_id)
+    balance = transaction.transaction_type.downcase == 'deposit' ? account.balance - transaction.amount.to_i : account.balance + transaction.amount.to_i
+    account.update(balance: balance)
+    transaction.destroy
+    redirect_to child_path(account.child_id)
   end
 
   private
