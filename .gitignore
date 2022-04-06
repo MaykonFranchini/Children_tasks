@@ -42,3 +42,4 @@ yarn-debug.log*
 
 #Ignore service workers for pwa
 public/service-worker.js*
+.env*

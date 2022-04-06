@@ -36,6 +36,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # authentication
 gem 'devise'
 
+# dotenv file
+gem 'dotenv-rails', groups: [:development, :test]
+
 # authorization
 # gem 'pundit'
 
