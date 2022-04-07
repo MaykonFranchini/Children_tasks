@@ -39,6 +39,12 @@ gem 'devise'
 # dotenv file
 gem 'dotenv-rails', groups: [:development, :test]
 
+
+# cloudnary - store images and videos
+
+gem 'cloudinary', '~> 1.16.0'
+
+
 # authorization
 # gem 'pundit'
 
