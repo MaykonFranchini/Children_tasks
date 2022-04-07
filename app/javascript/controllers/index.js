@@ -8,3 +8,6 @@ application.register("hello", HelloController)
 
 import TabsController from "./tabs_controller.js"
 application.register("tabs", TabsController)
+
+import AvatarController from './avatar_controller.js'
+application.register("avatar", AvatarController)

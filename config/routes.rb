@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/user' => "users#dashboard", :as => :user_root
+  get '/user/profile' => "users#profile", :as => :user_profile
   get '/child' => "children#dashboard", :as => :child_root
 
    get "children/:id", to: 'children#show', as: :child
