@@ -28,7 +28,48 @@
       <li>
         <a href="#" class="tab-underlined"><i class="fas fa-clipboard-list"></i>Tasks</a>
       </li>
+      <li>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn-notifications" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="far fa-bell"></i>
+          <small class="notifications-count">
+              <% if @notifications.count > 0  %>
+                <%= @notifications.count %>
+              <% end %>
+          </small>
+        </button>
+      </li>
     </ul>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
+            <button type="button" class="btn-modal-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+          </div>
+
+          <div class="modal-body">
+            <% if @notifications.count == 0  %>
+              <span>You don't have new notifications</span>
+            <% else  %>
+              <% @notifications.each do |message| %>
+                <div class="notification-card">
+                  <%= message.content %>
+                  <%= link_to '<i class="fas fa-times"></i>'.html_safe,
+                    message_path(message),
+                    method: :put
+                  %>
+                </div>
+              <% end %>
+            <% end  %>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="content">

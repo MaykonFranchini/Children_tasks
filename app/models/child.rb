@@ -3,6 +3,7 @@ class Child < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :user
   has_many :account
+  has_one_attached :photo
   has_many :Subscriptions
   has_many :transactions ,through: :account
   has_many :tasks, dependent: :destroy

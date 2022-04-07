@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
       message = Message.new(child_id: child, notification_id: notification.id, content: "New task. #{@task.title.capitalize}.")
       if message.save
-        redirect_to child_path(@task.child_id)
+        redirect_to child_path(@task.child_id), notice: 'Task created'
       end
     else
     render :new
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
     if task
       task.status = 'completed'
       task.save
-      redirect_to child_root_path
+      redirect_to child_root_path, notice: 'Task completed'
     end
   end
 
