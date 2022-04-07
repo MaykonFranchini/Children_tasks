@@ -1,11 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:wght@400;500&display=swap');
+.dashboard-title {
+  color: #0a645ca1;
+  text-align: center;
+}
 .family-cards {
   display: flex;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 500px;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 10px;
 }
+
+
+.kids-card {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  width: 240px;
+  height: 240px;
+  background: rgb(248, 246, 246);
+  padding: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius:10px;
+
+  a {
+    text-decoration: none;
+  }
+  .kids-card-title {
+    display: flex;
+    background: #11998e81;
+    border-radius:5px 5px 0 0;
+    height: 80px;
+    img {
+      margin-left: 10px;
+      position: relative;
+      top: 20px;
+    }
+    .child-info {
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      margin-left: 10px;
+       p {
+         font-size: 16px;
+         color: #fff;
+         margin: 0;
+       }
+    }
+  }
+
+  .child-data-overview {
+    color: rgb(59, 57, 57);
+    margin: 20px;
+    .data-container {
+      padding: 5px 0;
+      line-height:1;
+
+      small {
+        color: rgba(0, 0, 0, 0.5);
+        position: relative;
+        bottom: 6px;
+        font-size: 11px;
+      }
+    }
+    .child-data-title {
+      font-size: 8px;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+    }
+    .child-data-balance {
+      font-size:25px;
+      color: #0a645ca1;
+      margin: 0;
+    }
+    .child-data-info {
+      margin: 0;
+      font-size:16px;
+      color: #0a645ca1;
+    }
+  }
+}
+
+
 .card-kids {
   display: flex;
   justify-content: center;
@@ -35,7 +111,12 @@
   text-align: center;
   background: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 10px;
+  border-radius: 5px;
+
+  &:hover {
+    background: rgb(235, 233, 233);
+    transition: all .3s;
+  }
   a {
     text-decoration: none;
     color: black;
@@ -43,11 +124,10 @@
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
     background-clip: inherit;
-    background: -webkit-linear-gradient(#11998ec4,#38ef7ec4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #0a645ca1;
     margin-bottom: 0;
   }
 }

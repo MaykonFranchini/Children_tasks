@@ -18,4 +18,8 @@ class Child < ApplicationRecord
   def card_name
     first_name.upcase + " " + last_name[0].upcase + "."
   end
+
+  def full_name
+    first_name.capitalize + " " + last_name.capitalize
+  end
 end

@@ -1,16 +1,51 @@
-<h1>Welcome <%=@user.first_name%> <%=@user.last_name%></h1>
+<h1 class="dashboard-title">Family Group</h1>
 <div class="family-cards">
   <% @user.children.each do |child| %>
-    <div class="card-kids">
+    <div class="kids-card">
       <%= link_to child_path(child.id) do %>
-        <h3><%= child.first_name %></h3>
+        <div class='kids-card-title'>
+          <% if child.photo.attached? %>
+            <%= cl_image_tag child.photo.key, :transformation=>[
+              {:gravity=>"face", :height=>300, :width=>300, :crop=>"crop"}], class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false
+            %>
+          <% else %>
+            <%= image_tag "kids.png", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <div class="child-info">
+            <p><%= child.full_name %></p>
+          </div>
+        </div>
+        <div class="child-data-overview">
+          <div class="data-container">
+            <span class="child-data-title">BALANCE</span>
+            <p class="child-data-balance">
+            <small>£</small>
+              <% if child.account.exists? %>
+                <%= child.account[0].balance %>
+              <% else %>
+                0
+              <% end %>
+            </p>
+          </div>
+          <div class="data-container">
+            <span class="child-data-title">LAST TASK</span>
+            <p class="child-data-info">
+              <% if child.tasks.exists? %>
+                <%= child.tasks[-1].title %>
+              <% else %>
+                There's no tasks yet.
+              <% end %>
+              
+            </p>
+          </div>
+        </div>
       <% end %>
     </div>
 
   <% end  %>
     <div class="card-kids-new">
       <%= link_to new_child_registration_url do %>
-        <h3></i>Add new child</h3>
+        <h3></i>Add a child</h3>
       <% end %>
     </div>
 </div>
