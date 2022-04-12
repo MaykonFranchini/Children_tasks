@@ -13,7 +13,8 @@ class ChildrenController < ApplicationController
     @task = Task.new
     @pendingTasks = Task.pending_tasks(params[:id])
     @child = Child.find(params[:id])
-    @transactions = Transaction.list(@child)
+    @pagy, @transactions = pagy(Transaction.list(@child), items: 5)
+
   end
 
 end

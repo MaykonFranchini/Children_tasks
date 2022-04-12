@@ -24,6 +24,8 @@ gem 'redis', '~> 4.0'
 
 gem "minitest-rails", "~> 6.1.0"
 
+# pagination
+gem 'pagy', '~> 5.10' # omit patch digit
 
 #stimulus js
 gem 'stimulus-rails'

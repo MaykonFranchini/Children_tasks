@@ -1,0 +1,16 @@
+<div class="balance-card">
+    <div class="balance-info">
+      <div>Balance</div><div><strong>£<% @child.account.each do |account| %>
+      <%= account.balance %>
+      <% end %></strong></div>
+    </div>
+
+    <div class="balance-info">
+      <div>
+        <p class="balance-name"><strong><%= @child.card_name %></strong></p>
+      </div>
+      <div>
+        <i id="card" class="fab fa-cc-apple-pay"></i>
+      </div>
+    </div>
+  </div>

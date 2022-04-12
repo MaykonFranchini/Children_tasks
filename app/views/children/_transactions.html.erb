@@ -1,0 +1,26 @@
+<% @transactions.each  do |transaction| %>
+  <div class="card-transaction-item">
+
+    <div class="transaction-description">
+      <div>
+        <% if transaction.transaction_type.downcase === 'deposit' %>
+          <i class="fas fa-arrow-up deposit"></i>
+        <% else %>
+          <i class="fas fa-arrow-down withdraw"></i>
+        <% end %>
+      </div>
+      <div>
+        <p><small><%= Date.parse(transaction.created_at.to_formatted_s).strftime('%d %b %Y') %></small></p>
+        <p><%= transaction.description %></p>
+      </div>
+    </div>
+    <div class="amount">
+      <p>£<%= transaction.amount %></p>
+        <%= link_to '<i class="fas fa-trash-alt trash"></i>'.html_safe,
+            transaction_path(transaction),
+            method: :delete,
+            data: { confirm: "Are you sure that you wan't to delete this transaction?" } %>
+    </div>
+  </div>
+<% end %>
+<%== pagy_nav(@pagy) %>

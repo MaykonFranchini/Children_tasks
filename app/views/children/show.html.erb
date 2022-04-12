@@ -1,22 +1,6 @@
 <div class="container text-center">
 
-  <div class="balance-card">
-    <div class="balance-info">
-      <div>Balance</div><div><strong>£<% @child.account.each do |account| %>
-      <%= account.balance %>
-      <% end %></strong></div>
-    </div>
-
-    <div class="balance-info">
-      <div>
-        <p class="balance-name"><strong><%= @child.card_name %></strong></p>
-      </div>
-      <div>
-        <i id="card" class="fab fa-cc-apple-pay"></i>
-        <%# <a href='' id='transactionLink' class="transactionButton">New transaction</a> %>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'child_card' %>
 
   <div>
     <div class="tabs-group">
@@ -39,31 +23,8 @@
     <div class="content">
       <div id="transact" class="content-item fade show" data-info="Transactions">
 
-          <% @transactions.each  do |transaction| %>
-            <div class="card-transaction-item">
+          <%= render partial: 'transactions' %>
 
-              <div class="transaction-description">
-                <div>
-                  <% if transaction.transaction_type.downcase === 'deposit' %>
-                    <i class="fas fa-arrow-up deposit"></i>
-                  <% else %>
-                    <i class="fas fa-arrow-down withdraw"></i>
-                  <% end %>
-                </div>
-                <div>
-                  <p><small><%= Date.parse(transaction.created_at.to_formatted_s).strftime('%d %b %Y') %></small></p>
-                  <p><%= transaction.description %></p>
-                </div>
-              </div>
-              <div class="amount">
-                <p>£<%= transaction.amount %></p>
-                 <%= link_to '<i class="fas fa-trash-alt trash"></i>'.html_safe,
-                      transaction_path(transaction),
-                      method: :delete,
-                      data: { confirm: "Are you sure that you wan't to delete this transaction?" } %>
-              </div>
-            </div>
-          <% end %>
       </div>
 
       <div class="content-item fade" data-info="Tasks">
