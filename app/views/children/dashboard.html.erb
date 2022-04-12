@@ -50,7 +50,9 @@
                   %>
                 </div>
               <% end %>
-              <%= button_to 'Clear all', clear_all_messages_path(@child.id), class: 'clear-notifications' %>
+              <div class="clear-notifications-container">
+                <%= link_to 'Clear all', clear_all_messages_path(@child.id), method: :post, class: 'clear-notifications' %>
+              </div>
             <% end  %>
           </div>
         </div>
