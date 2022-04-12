@@ -5,7 +5,8 @@ class ChildrenController < ApplicationController
     @child = Child.find(current_child.id)
     @pendingTasks = Task.pending_tasks(current_child.id)
     @notifications = Message.unread(@child.id)
-    @transactions = Transaction.list(@child)
+    @pagy, @transactions = pagy(Transaction.list(@child), items: 5)
+
   end
 
   def show
