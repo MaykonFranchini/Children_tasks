@@ -1,0 +1,35 @@
+.pagy-nav.pagination {
+  margin-top: 14px;
+}
+.page {
+  background: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  color: #17ce5dd7;
+  text-shadow: rgb(202, 202, 202);
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.page.disabled {
+  color: gray;
+}
+
+.page.active {
+  background-color: #17ce5dd7;
+  color: white;
+}
