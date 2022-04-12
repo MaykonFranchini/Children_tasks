@@ -1,23 +1,7 @@
 <div class="container text-center">
 
 
-  <div class="balance-card">
-    <div class="balance-info">
-      <div>Balance</div><div><strong>£<% @child.account.each do |account| %>
-        <%= account.balance %>
-      <% end %></strong></div>
-    </div>
-
-    <div class="balance-info">
-      <div>
-        <p class="balance-name"><strong><%= @child.card_name %></strong></p>
-      </div>
-      <div>
-        <i id="card" class="fab fa-cc-apple-pay"></i>
-        <%# <a href='' id='transactionLink' class="transactionButton">New transaction</a> %>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'child_card' %>
 
   <div>
     <div class="tabs-group">
@@ -66,6 +50,7 @@
                   %>
                 </div>
               <% end %>
+              <%= button_to 'Clear all', clear_all_messages_path(@child.id), class: 'clear-notifications' %>
             <% end  %>
           </div>
         </div>

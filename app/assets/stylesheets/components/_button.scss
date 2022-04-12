@@ -51,3 +51,14 @@
   color: white;
   font-weight: bold;
 }
+
+.button_to .clear-notifications {
+  display: flex;
+  margin-top: 5px;
+}
+
+.clear-notifications {
+  background: white;
+  border: 2px solid gray;
+  border-radius: 5px;
+}

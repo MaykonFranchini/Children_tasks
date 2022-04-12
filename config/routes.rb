@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:new, :create, :destroy]
   resources :tasks
   resources :messages, only: [:update]
+  post 'children/:id/messages', to: 'messages#clear_all_messages', as: :clear_all_messages
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   authenticate :user do
